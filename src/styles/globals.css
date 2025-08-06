@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Core Brand Colors */
+    --background: 0 0% 96%; /* #f6f6f6 */
+    --foreground: 210 47% 20%; /* #182e47 */
+    --card: 0 0% 100%; /* #ffffff */
+    --card-foreground: 210 47% 20%; /* #182e47 */
+    --popover: 210 33% 97%; /* #f3f6f9 */
+    --popover-foreground: 210 47% 20%; /* #182e47 */
+    --primary: 35 97% 66%; /* #fba954 - Brand orange */
+    --primary-foreground: 210 47% 20%; /* #182e47 - High contrast for legibility */
+    --secondary: 190 100% 36%; /* #0897b6 - Brand teal */
+    --secondary-foreground: 0 0% 100%; /* #ffffff */
+    --accent: 19 83% 40%; /* #bb3208 - Deep orange-brown, better contrast */
+    --accent-foreground: 0 0% 100%; /* #ffffff */
+    --destructive: 349 69% 46%; /* #c3254b */
+    --destructive-foreground: 0 0% 100%; /* #ffffff */
+    --muted: 210 33% 97%; /* #f3f6f9 */
+    --muted-foreground: 215 16% 35%; /* #495466 */
+    --border: 190 100% 36%; /* #0897b6 */
+    --input: 0 0% 100%; /* #ffffff */
+    --ring: 190 100% 36%; /* #0897b6 */
+    --sidebar: 210 25% 96%; /* #f4f6f8 */
+    --sidebar-foreground: 210 47% 20%; /* #182e47 */
+    --sidebar-primary: 35 97% 66%; /* #fba954 */
+    --sidebar-primary-foreground: 210 47% 20%; /* #182e47 */
+    --sidebar-accent: 190 100% 36%; /* #0897b6 */
+    --sidebar-accent-foreground: 0 0% 100%; /* #ffffff */
+    --sidebar-border: 190 100% 36%; /* #0897b6 */
+    --sidebar-ring: 190 40% 74%; /* #c2d9e5 */
+    --chart-1: 35 97% 66%; /* #fba954 */
+    --chart-2: 19 83% 40%; /* #bb3208 */
+    --chart-3: 190 100% 36%; /* #0897b6 */
+    --chart-4: 201 85% 61%; /* #3fa7f6 */
+    --chart-5: 349 69% 46%; /* #c3254b */
+    --radius: 14px;
+
+    /* Shadows (Light Mode) */
+    --shadow-md: 0 2px 8px 0px rgba(24,46,71,0.10), 0 1px 2px 0px rgba(8,151,182,0.06);
+  }
+
+  .dark {
+    --background: 215 20% 9%; /* #15181c - Closer to true black for dark mode */
+    --foreground: 0 0% 98%; /* #fafafa */
+    --card: 217 15% 15%; /* #21242a */
+    --card-foreground: 0 0% 98%; /* #fafafa */
+    --popover: 217 13% 16%; /* #23252a */
+    --popover-foreground: 0 0% 98%; /* #fafafa */
+    --primary: 35 97% 66%; /* #fba954 */
+    --primary-foreground: 215 20% 9%; /* #15181c */
+    --secondary: 190 100% 36%; /* #0897b6 */
+    --secondary-foreground: 0 0% 100%; /* #ffffff */
+    --accent: 19 83% 40%; /* #bb3208 */
+    --accent-foreground: 0 0% 100%; /* #ffffff */
+    --destructive: 349 69% 46%; /* #c3254b */
+    --destructive-foreground: 0 0% 100%; /* #ffffff */
+    --muted: 217 13% 16%; /* #23252a */
+    --muted-foreground: 0 0% 63%; /* #a1a1a1 */
+    --border: 190 100% 36%; /* #0897b6 */
+    --input: 220 13% 18%; /* #2a2d33 */
+    --ring: 201 85% 61%; /* #3fa7f6 */
+    --sidebar: 216 21% 11%; /* #181a1f */
+    --sidebar-foreground: 0 0% 98%; /* #fafafa */
+    --sidebar-primary: 35 97% 66%; /* #fba954 */
+    --sidebar-primary-foreground: 216 21% 11%; /* #181a1f */
+    --sidebar-accent: 190 100% 36%; /* #0897b6 */
+    --sidebar-accent-foreground: 0 0% 100%; /* #ffffff */
+    --sidebar-border: 190 100% 36%; /* #0897b6 */
+    --sidebar-ring: 201 85% 61%; /* #3fa7f6 */
+    --chart-1: 35 97% 66%; /* #fba954 */
+    --chart-2: 19 83% 40%; /* #bb3208 */
+    --chart-3: 190 100% 36%; /* #0897b6 */
+    --chart-4: 201 85% 61%; /* #3fa7f6 */
+    --chart-5: 349 69% 46%; /* #c3254b */
+    --radius: 14px;
+
+    /* Shadows (Dark Mode, using brand teal) */
+    --shadow-md: -3.5px 12px 23px -2px rgba(8,151,182,0.27), 0 1.5px 4px 0px rgba(8,151,182,0.10);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, 'Noto Sans', sans-serif;
+  }
+}
+
+@layer components {
+  /* Shadow applied ONLY to major UI elements */
+  .card,
+  .popover,
+  .dashboard-panel,
+  .modal,
+  .sheet {
+    @apply shadow-card rounded-lg border;
+  }
+
+  /* Buttons */
+  .button-primary {
+    @apply bg-primary text-primary-foreground rounded-lg px-4 py-2 font-medium hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2;
+  }
+  
+  .button-secondary {
+    @apply bg-secondary text-secondary-foreground rounded-lg px-4 py-2 font-medium hover:bg-secondary/90 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2;
+  }
+  
+  .button-destructive {
+    @apply bg-destructive text-destructive-foreground rounded-lg px-4 py-2 font-medium hover:bg-destructive/90 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2;
+  }
+
+  /* Inputs */
+  .input {
+    @apply bg-input text-foreground border border-border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2;
+  }
+
+  /* Optional: Sidebar/inputs have no shadow for flat, minimal look */
+  .sidebar,
+  .input {
+    @apply shadow-none;
+  }
+}
